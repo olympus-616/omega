@@ -1,0 +1,28 @@
+@import './styles/mythic-forge.base.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Override accent for omega */
+:root {
+  --accent:      #E74C3C;
+  --accent-dim:  #E74C3C18;
+  --accent-mute: #E74C3C35;
+  --accent-text: #E74C3C;
+}
+
+::selection {
+  background: var(--accent-mute);
+  color: var(--text-primary);
+}
+
+/* Viewport locking */
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+}
