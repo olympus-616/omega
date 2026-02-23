@@ -1,0 +1,4 @@
+.subnav { display: flex; align-items: center; height: 32px; flex-shrink: 0; background: transparent; border-bottom: 1px solid var(--border); padding-left: 0.75rem; gap: 1.5rem; }
+.subnav a, .subnav button { font-family: 'Azeret Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--text-disabled); line-height: 32px; background: none; border: none; border-bottom: 2px solid transparent; padding: 0; cursor: pointer; transition: color 0.15s ease; }
+.subnav a:hover, .subnav button:hover { color: var(--text-tertiary); }
+.subnav a.active, .subnav button.active { color: var(--gold); border-bottom-color: var(--gold); }

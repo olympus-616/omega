@@ -1,0 +1,232 @@
+/**
+ * MYTHIC FORGE — Olympus-Grid Base Stylesheet
+ *
+ * Import this BEFORE tailwind directives in every app:
+ *   @import './mythic-forge.base.css';
+ *   @tailwind base;
+ *   @tailwind components;
+ *   @tailwind utilities;
+ *
+ * Then override --accent in your app's own CSS:
+ *   :root { --accent: #4A9EBF; --accent-dim: #4A9EBF18; --accent-mute: #4A9EBF35; --accent-text: #4A9EBF; }
+ */
+
+/* ══════════════════════════════════════════════
+   CSS CUSTOM PROPERTIES
+   ══════════════════════════════════════════════ */
+
+:root {
+  /* Surface Layers */
+  --bg-base:      #06060A;
+  --bg-surface0:  #0A0A12;
+  --bg-surface1:  #0F0F18;
+  --bg-surface2:  #14141E;
+  --bg-surface3:  #1A1A28;
+
+  /* Borders */
+  --border:       #1A1A28;
+  --border-hover: #24243A;
+  --border-focus: #35355A;
+
+  /* Text */
+  --text-primary:   #E8E4DC;
+  --text-secondary: #AAA69E;
+  --text-tertiary:  #666360;
+  --text-disabled:  #3A3835;
+
+  /* Gold Thread (universal brand, never changes per app) */
+  --gold:      #C8A84E;
+  --gold-dim:  #C8A84E18;
+  --gold-mute: #C8A84E35;
+
+  /* Accent (OVERRIDE THESE PER APP) */
+  --accent:      #C8A84E;
+  --accent-dim:  #C8A84E18;
+  --accent-mute: #C8A84E35;
+  --accent-text: #C8A84E;
+
+  /* Semantic */
+  --success:     #27AE60;
+  --success-dim: #27AE6018;
+  --error:       #E74C3C;
+  --error-dim:   #E74C3C18;
+  --warning:     #F39C12;
+  --warning-dim: #F39C1218;
+  --info:        #3498DB;
+  --info-dim:    #3498DB18;
+
+  /* Layout */
+  --rail-width:  56px;
+  --topbar-h:    52px;
+  --status-h:    32px;
+}
+
+
+/* ══════════════════════════════════════════════
+   APP ACCENT OVERRIDES
+   Copy ONE block into each app's index.css
+   ══════════════════════════════════════════════
+
+  Athena:     --accent:#4A9EBF; --accent-dim:#4A9EBF18; --accent-mute:#4A9EBF35; --accent-text:#4A9EBF;
+  Poseidon:   --accent:#2E86DE; --accent-dim:#2E86DE18; --accent-mute:#2E86DE35; --accent-text:#2E86DE;
+  Ares:       --accent:#C0392B; --accent-dim:#C0392B18; --accent-mute:#C0392B35; --accent-text:#C0392B;
+  Hermes:     --accent:#D4A843; --accent-dim:#D4A84318; --accent-mute:#D4A84335; --accent-text:#D4A843;
+  Apollo:     --accent:#F39C12; --accent-dim:#F39C1218; --accent-mute:#F39C1235; --accent-text:#F39C12;
+  Iris:       --accent:#8E44AD; --accent-dim:#8E44AD18; --accent-mute:#8E44AD35; --accent-text:#8E44AD;
+  Proteus:    --accent:#27AE60; --accent-dim:#27AE6018; --accent-mute:#27AE6035; --accent-text:#27AE60;
+  Gate:       --accent:#1ABC9C; --accent-dim:#1ABC9C18; --accent-mute:#1ABC9C35; --accent-text:#1ABC9C;
+  Chronos:    --accent:#E74C3C; --accent-dim:#E74C3C18; --accent-mute:#E74C3C35; --accent-text:#E74C3C;
+  Orion:      --accent:#3498DB; --accent-dim:#3498DB18; --accent-mute:#3498DB35; --accent-text:#3498DB;
+  Aeon:       --accent:#95A5A6; --accent-dim:#95A5A618; --accent-mute:#95A5A635; --accent-text:#95A5A6;
+  Eos:        --accent:#D4AC0D; --accent-dim:#D4AC0D18; --accent-mute:#D4AC0D35; --accent-text:#D4AC0D;
+  Zeus:       --accent:#FFD700; --accent-dim:#FFD70018; --accent-mute:#FFD70035; --accent-text:#FFD700;
+  Hera:       --accent:#9B59B6; --accent-dim:#9B59B618; --accent-mute:#9B59B635; --accent-text:#9B59B6;
+  Hestia:     --accent:#E67E22; --accent-dim:#E67E2218; --accent-mute:#E67E2235; --accent-text:#E67E22;
+  Hephaestus: --accent:#DC7633; --accent-dim:#DC763318; --accent-mute:#DC763335; --accent-text:#DC7633;
+  Argos:      --accent:#17A589; --accent-dim:#17A58918; --accent-mute:#17A58935; --accent-text:#17A589;
+  TurtleShell:--accent:#45B39D; --accent-dim:#45B39D18; --accent-mute:#45B39D35; --accent-text:#45B39D;
+  Cosmos:     --accent:#E8D5B7; --accent-dim:#E8D5B718; --accent-mute:#E8D5B735; --accent-text:#E8D5B7;
+
+*/
+
+
+/* ══════════════════════════════════════════════
+   GLOBAL RESETS
+   ══════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/* ══════════════════════════════════════════════
+   SCROLLBAR
+   ══════════════════════════════════════════════ */
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg-surface3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+
+/* ══════════════════════════════════════════════
+   GOLD THREAD
+   ══════════════════════════════════════════════ */
+
+.gold-thread {
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-mute), transparent 60%);
+  flex-shrink: 0;
+}
+
+
+/* ══════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+   ══════════════════════════════════════════════ */
+
+/* Cinzel display headings */
+.heading-display {
+  font-family: 'Cinzel', Georgia, serif;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* Cinzel section label (gold, uppercase) */
+.section-label {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Cinzel panel/table header */
+.heading-panel {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+/* Cinzel table column header */
+.heading-column {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.75rem;
+  color: var(--text-disabled);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Mono data display */
+.text-data {
+  font-family: 'Azeret Mono', 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+}
+
+
+/* ══════════════════════════════════════════════
+   STATUS BAR
+   ══════════════════════════════════════════════ */
+
+.status-bar {
+  height: var(--status-h);
+  background: var(--bg-surface0);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  font-family: 'Azeret Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-disabled);
+  flex-shrink: 0;
+}
+
+
+/* ══════════════════════════════════════════════
+   FOCUS VISIBLE (accessibility)
+   ══════════════════════════════════════════════ */
+
+:focus-visible {
+  outline: 2px solid var(--accent-mute);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent-mute);
+  box-shadow: 0 0 0 2px var(--accent-dim);
+}
+
+
+/* ══════════════════════════════════════════════
+   SELECTION
+   ══════════════════════════════════════════════ */
+
+::selection {
+  background: var(--accent-mute);
+  color: var(--text-primary);
+}
