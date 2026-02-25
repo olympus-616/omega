@@ -20,26 +20,36 @@ app.get('/v1/omega/health', (_req, res) => {
 });
 
 // ── Status ────────────────────────────────────────────
+const bootTs = Date.now();
+function uptime(): string {
+  const s = Math.floor((Date.now() - bootTs) / 1000);
+  const m = Math.floor(s / 60);
+  const h = Math.floor(m / 60);
+  if (h > 0) return `${h}h ${m % 60}m ${s % 60}s`;
+  if (m > 0) return `${m}m ${s % 60}s`;
+  return `${s}s`;
+}
+
+const omegaStatus = () => ({
+  service: 'omega',
+  title: 'Off Switch',
+  domain: 'Off Switch',
+  version: process.env.OMEGA_VERSION ?? '1.7',
+  status: 'active',
+  uptime: uptime(),
+  bootTime: new Date(bootTs).toISOString(),
+  environment: process.env.NODE_ENV || 'development',
+  port: PORT,
+  pantheon: 'olympus-616',
+  layer: 'Infrastructure',
+});
+
 app.get('/status', (_req, res) => {
-  res.json({
-    god: 'omega',
-    version: process.env.OMEGA_VERSION ?? '1.7',
-    env: process.env.ENV ?? 'unknown',
-    port: PORT,
-    uptime: process.uptime(),
-    role: 'Off Switch — Final Authority',
-  });
+  res.json(omegaStatus());
 });
 
 app.get('/v1/omega/status', (_req, res) => {
-  res.json({
-    god: 'omega',
-    version: process.env.OMEGA_VERSION ?? '1.7',
-    env: process.env.ENV ?? 'unknown',
-    port: PORT,
-    uptime: process.uptime(),
-    role: 'Off Switch — Final Authority',
-  });
+  res.json(omegaStatus());
 });
 
 // ── Root ──────────────────────────────────────────────

@@ -1,78 +1,93 @@
 import { useEffect, useState } from 'react';
 
-const GOD_NAME = 'omega';
-const GOD_TITLE = 'Off Switch';
-const GOD_SYMBOL = '\u03A9';
-const GOD_MOTTO = 'The final word.';
-const GOD_DOMAIN = 'Shutdown';
-
-interface StatusData {
+interface AgentStatus {
   service: string;
-  title: string;
-  domain: string;
   version: string;
   status: string;
-  uptime: string;
-  port: number;
   layer: string;
+  [key: string]: unknown;
 }
 
 export default function Overview() {
-  const [status, setStatus] = useState<StatusData | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [status, setStatus] = useState<AgentStatus | null>(null);
 
   useEffect(() => {
     fetch('/status')
       .then((r) => r.json())
       .then(setStatus)
-      .catch((e) => setError(e.message));
+      .catch(() => {});
   }, []);
 
   return (
-    <div className="flex items-center justify-center flex-1 p-8">
-      <div className="border border-accent/25 rounded-xl p-10 max-w-xl w-full bg-surface1">
-        <div className="text-6xl text-center mb-4">{GOD_SYMBOL}</div>
-        <h1 className="text-center text-accent font-display text-h2 uppercase tracking-[0.2em]">
-          {GOD_NAME}
-        </h1>
-        <p className="text-center text-text-tertiary text-sm mt-1">{GOD_TITLE}</p>
-        <p className="text-center text-accent/60 text-xs italic mt-1 mb-8 font-body">
-          &ldquo;{GOD_MOTTO}&rdquo;
+    <div className="flex-1 flex flex-col items-center justify-center p-8">
+      <div className="w-full max-w-lg flex flex-col items-center gap-10">
+
+        {/* Icon */}
+        <div
+          className="flex items-center justify-center w-24 h-24 rounded-full text-5xl font-display"
+          style={{ background: 'var(--accent-dim)', color: 'var(--accent)' }}
+        >
+          &omega;
+        </div>
+
+        {/* Title block */}
+        <div className="text-center">
+          <h1
+            className="heading-display text-4xl tracking-wide"
+            style={{ color: 'var(--accent)' }}
+          >
+            Omega
+          </h1>
+          <p className="mt-2 text-sm tracking-widest uppercase text-text-tertiary font-mono">
+            Off Switch
+          </p>
+        </div>
+
+        <div className="gold-thread w-full" />
+
+        {/* Description */}
+        <p className="text-text-secondary text-center leading-relaxed max-w-md">
+          Omega is the off switch of Olympus-616. The final word &mdash; he governs graceful shutdown, emergency termination, and the controlled cessation of services when the pantheon must rest.
         </p>
 
-        <div className="bg-surface0 rounded-lg p-5 border border-border">
-          <div className="text-text-disabled font-display text-label uppercase tracking-widest mb-3">
-            System Status
+        {/* Capabilities */}
+        <div className="w-full max-w-sm">
+          <h2 className="section-label mb-4 text-center">Capabilities</h2>
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-text-secondary">
+            <li className="flex items-center gap-2">
+              <span style={{ color: 'var(--accent)' }}>&#x25B8;</span>
+              Graceful Shutdown
+            </li>
+            <li className="flex items-center gap-2">
+              <span style={{ color: 'var(--accent)' }}>&#x25B8;</span>
+              Emergency Stop
+            </li>
+            <li className="flex items-center gap-2">
+              <span style={{ color: 'var(--accent)' }}>&#x25B8;</span>
+              Service Termination
+            </li>
+            <li className="flex items-center gap-2">
+              <span style={{ color: 'var(--accent)' }}>&#x25B8;</span>
+              Shutdown Sequencing
+            </li>
+          </ul>
+        </div>
+
+        <div className="gold-thread w-full" />
+
+        {/* Live status pill */}
+        {status && (
+          <div className="flex items-center gap-3 text-xs font-mono text-text-disabled">
+            <span
+              className="inline-block w-2 h-2 rounded-full"
+              style={{ background: status.status === 'active' ? 'var(--success)' : 'var(--error)' }}
+            />
+            <span>v{status.version}</span>
+            <span>&middot;</span>
+            <span>{status.layer}</span>
           </div>
-          {error ? (
-            <div className="text-error font-mono text-sm">&#x26A0; Offline — {error}</div>
-          ) : status ? (
-            <div className="space-y-2">
-              <Row label="Status" value={status.status} accent />
-              <Row label="Version" value={status.version} />
-              <Row label="Uptime" value={status.uptime} />
-              <Row label="Domain" value={GOD_DOMAIN} />
-              <Row label="Port" value={String(status.port)} />
-              <Row label="Layer" value={status.layer} />
-            </div>
-          ) : (
-            <div className="text-text-tertiary font-mono text-sm">Connecting to {GOD_NAME}...</div>
-          )}
-        </div>
-
-        <div className="text-center mt-8 text-text-disabled text-xs tracking-widest font-display">
-          OLYMPUS-616 &bull; SOVEREIGN AI GRID &bull; CLOUDPREMISE LLC
-        </div>
+        )}
       </div>
-    </div>
-  );
-}
-
-function Row({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
-  return (
-    <div className="flex justify-between border-b border-border pb-1.5">
-      <span className="text-text-tertiary text-sm font-body">{label}</span>
-      <span className={`text-sm font-mono font-bold ${accent ? 'text-success' : 'text-text-primary'}`}>{value}</span>
     </div>
   );
 }
