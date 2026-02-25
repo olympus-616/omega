@@ -37,7 +37,7 @@ const GODS: GodEntry[] = [
   { id: 'hestia',            label: 'Hestia',            initial: 'Hs',      port: 3502, color: '#E67E22' },
   { id: 'iris',              label: 'Iris',              initial: '\u0399',  port: 3542, color: '#8E44AD' },
   { id: 'mnemosyne',         label: 'Mnemosyne',         initial: 'Mn',      port: 3712, color: '#85929E' },
-  { id: 'odyssey-press',     label: 'Odyssey Press',     initial: 'OP',      port: 3672, color: '#5DADE2' },
+  { id: 'odyssey-press',     label: 'Odyssey-Press',     initial: 'OP',      port: 3672, color: '#5DADE2' },
   { id: 'oracle',            label: 'Oracle',            initial: 'Oc',      port: 3662, color: '#F1C40F' },
   { id: 'orion',             label: 'Orion',             initial: 'Or',      port: 3562, color: '#3498DB' },
   { id: 'plutus',            label: 'Plutus',            initial: 'Pl',      port: 3702, color: '#DAA520' },

@@ -5,6 +5,7 @@ const tabs = [
   { label: 'Overview', to: '/' },
   { label: 'Demo', to: '/demo' },
   { label: 'Config', to: '/config' },
+  { label: 'About', to: '/about' },
 ];
 
 export default function SubNav() {
