@@ -61,6 +61,8 @@ app.get('/', (_req, res) => {
     <h1 style="color: #C8A84E;">${SERVICE_SYMBOL} ${SERVICE_TITLE}</h1>
     <p>${description}</p>
     <p><strong>Status:</strong> alive</p>
+    <p><a data-r="health" href="/health" style="color: #C8A84E;">/health</a> &middot; <a data-r="status" href="/status" style="color: #C8A84E;">/status</a></p>
+    <script>var b=location.pathname.replace(/[/]?$/,"/");document.querySelectorAll("[data-r]").forEach(function(a){a.href=b+a.dataset.r})</script>
   </body>
 </html>`);
 });
