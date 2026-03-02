@@ -44,14 +44,14 @@ done
 if [ -f "api/package.json" ]; then
   echo ""
   echo "→ Installing api/ dependencies..."
-  cd api && npm install 2>&1 && cd ..
+  cd api && npm ci 2>&1 && cd ..
 fi
 
 # ── Install ui deps ──────────────────────────────────
 if [ -f "ui/package.json" ]; then
   echo ""
   echo "→ Installing ui/ dependencies..."
-  cd ui && npm install 2>&1 && cd ..
+  cd ui && npm ci 2>&1 && cd ..
 fi
 
 # ── Report ───────────────────────────────────────────
