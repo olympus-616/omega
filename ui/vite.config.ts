@@ -7,6 +7,7 @@ export default defineConfig({
     host: true,
     port: 3732,
     strictPort: true,
+    open: true,
     proxy: {
       "/health": { target: "http://localhost:3731", changeOrigin: true },
       "/status": { target: "http://localhost:3731", changeOrigin: true },
