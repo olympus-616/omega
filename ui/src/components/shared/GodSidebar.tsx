@@ -42,6 +42,7 @@ const GODS: GodEntry[] = [
   { id: 'orion',             label: 'Orion',             initial: 'Or',      port: 3562, color: '#3498DB' },
   { id: 'plutus',            label: 'Plutus',            initial: 'Pl',      port: 3702, color: '#DAA520' },
   { id: 'poseidon',          label: 'Poseidon',          initial: '\u03A8',  port: 3432, color: '#2E86DE' },
+  { id: 'prometheus',        label: 'Prometheus',        initial: 'Pr',      port: 3742, color: '#FF5722' },
   { id: 'proteus',           label: 'Proteus',           initial: '\u03A0',  port: 3462, color: '#27AE60' },
   { id: 'zeus',              label: 'Zeus',              initial: '\u0396',  port: 3482, color: '#FFD700' },
   // Omega — always last
