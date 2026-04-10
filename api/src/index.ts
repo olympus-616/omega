@@ -17,7 +17,7 @@ const SERVICE_SYMBOL = 'Ω';
 const SERVICE_MOTTO = 'The final word.';
 const SERVICE_DOMAIN = 'Shutdown';
 const SERVICE_LAYER = 'Infrastructure';
-const VERSION = process.env.OMEGA_VERSION ?? `local-dev-${new Date().toISOString().split('T')[0]}`;
+const VERSION = process.env.OMEGA_VERSION ?? '1.7.4';
 const bootTs = Date.now();
 
 function uptime(): string {
