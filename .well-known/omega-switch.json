@@ -1,0 +1,7 @@
+{
+  "system_status": "halt",
+  "effective_at": "2026-10-24T00:00:00Z",
+  "message": "Omega kill switch initialized in HALT state. Flip to \"active\" via signed commit from @alchemisthomer to prove the kill-switch chain works end-to-end before the fleet is permitted to run.",
+  "signed_by": "@alchemisthomer",
+  "schema_version": 1
+}

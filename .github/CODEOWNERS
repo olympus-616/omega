@@ -1,0 +1,18 @@
+# Omega repository — universal kill switch for the olympus-grid system.
+#
+# All changes to the kill-switch file (and to this CODEOWNERS file itself)
+# require review + signed commits from @alchemisthomer. Enforced via
+# GitHub branch protection on brain/2.7.x.x:
+#   - Require pull request reviews before merging
+#   - Require review from Code Owners
+#   - Require signed commits
+#   - Dismiss stale pull request approvals when new commits are pushed
+#   - Restrict who can push to matching branches: @alchemisthomer only
+#
+# The fleet's agents fetch /.well-known/omega-switch.json via public URL
+# every 60s. If system_status != "active" OR the latest commit on
+# brain/2.7.x.x is NOT GPG-signed by @alchemisthomer, every agent
+# terminates immediately — no exceptions, no operator override.
+
+/.well-known/omega-switch.json  @alchemisthomer
+/.github/CODEOWNERS             @alchemisthomer
