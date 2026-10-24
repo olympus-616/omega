@@ -1,0 +1,48 @@
+{
+  "cosmos_logos_version": "1.1.0",
+  "identity": {
+    "name": "Omega",
+    "codename": "omega",
+    "purpose": "Finality \u2014 terminal state, completion",
+    "description": "Pantheon agent engineering the olympus-616/omega repo and consuming Chronos tasks assigned to AgentRole=omega. Charter: alpha/source_of_truth/omega/.",
+    "email": "homer+omega@cloudpremise.com",
+    "version": "1.7.0",
+    "repo": "https://github.com/olympus-616/omega",
+    "maintainers": [
+      "@alchemisthomer"
+    ]
+  },
+  "display": {
+    "color": "#1F2937",
+    "homepage": "https://github.com/olympus-616/omega"
+  },
+  "cryptography": {
+    "algorithm": "Ed25519",
+    "public_key": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEARyfOQG+dszeSMAuQunpCyFLMxpltq9DLLigIL7U/KUI=\n-----END PUBLIC KEY-----",
+    "fingerprint": "SHA256:psrxrRky7Gb/C5VO66fnIHdwct4n98s11tiTwMEGTFo=",
+    "signing_header": "x-cosmos-signature",
+    "timestamp_header": "x-cosmos-timestamp"
+  },
+  "capabilities": [],
+  "authority": {
+    "codename": "alpha",
+    "cosmos_logos_url": "https://raw.githubusercontent.com/olympus-616/alpha/brain/2.7.x.x/.well-known/cosmos-logos.json",
+    "fingerprint": "SHA256:/4lQWOFd0n6Hel0moRIJxEGWuB8BPOmfurOGUlouOLg=",
+    "constitution_index_url": "https://raw.githubusercontent.com/olympus-616/alpha/brain/2.7.x.x/.well-known/constitution-index.json",
+    "charter_path": "source_of_truth/omega/"
+  },
+  "trust": {
+    "ttl": 3600,
+    "agents": []
+  },
+  "metadata": {
+    "tags": [
+      "omega",
+      "pantheon",
+      "olympus-616"
+    ],
+    "created": "2026-10-24T02:02:49Z",
+    "updated": "2026-10-24T02:02:49Z",
+    "license": "proprietary"
+  }
+}
