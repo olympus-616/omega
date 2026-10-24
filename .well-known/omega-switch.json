@@ -1,7 +1,7 @@
 {
-  "system_status": "active",
+  "system_status": "halt",
   "effective_at": "2026-10-24T22:30:00Z",
-  "message": "Kill switch chain validated end-to-end 2026-10-24: Prometheus refused all spawn attempts while system_status=halt + commit GPG-verified by GitHub. The off switch is real. Fleet is now permitted to run.",
+  "message": "EMERGENCY STOP — fleet-wide halt via standing kill-switch PR merge. Every agent terminates within one 60s fetch window. To resume, open a new signed-commit PR flipping system_status back to active.",
   "signed_by": "@alchemisthomer",
   "schema_version": 1
 }
